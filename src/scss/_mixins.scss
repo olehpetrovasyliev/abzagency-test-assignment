@@ -1,0 +1,22 @@
+@import "./variables";
+
+@mixin container {
+  max-width: 360px;
+  padding: 0 15px;
+  margin: 0 auto;
+
+  @media only screen and (min-width: $breakpoint-tablet) {
+    max-width: 734px;
+  }
+
+  @media only screen and (min-width: $breakpoint-tablet) {
+    max-width: 934px;
+  }
+
+  @media only screen and (min-width: $breakpoint-huge) {
+    max-width: 1198px;
+  }
+}
+
+@mixin heading {
+}
