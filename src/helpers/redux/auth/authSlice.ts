@@ -14,10 +14,7 @@ const authSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getTokenThunk.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
+
       .addCase(
         getTokenThunk.fulfilled,
         (state, action: PayloadAction<TokenResponse>) => {
@@ -26,6 +23,10 @@ const authSlice = createSlice({
           state.error = null;
         }
       )
+      .addCase(getTokenThunk.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
       .addCase(getTokenThunk.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload
