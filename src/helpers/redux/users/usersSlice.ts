@@ -15,6 +15,7 @@ import {
 type UsersState = {
   usersList: UsersList | [];
   currentUser: User | {};
+  nextPageAvailable: boolean;
   isLoading: boolean;
   error: string | null;
 };
@@ -22,6 +23,7 @@ type UsersState = {
 const initialState: UsersState = {
   usersList: [],
   currentUser: {},
+  nextPageAvailable: true,
   isLoading: false,
   error: null,
 };
@@ -40,10 +42,21 @@ const usersSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getAllUsersThunk.fulfilled, (state, action) => {
-        state.usersList = action.payload.users;
+        state.usersList = [...action.payload.users].sort((a, b): any => {
+          return a.registration_timestamp - b.registration_timestamp;
+        });
+        if (action.payload.links.next_url === null) {
+          state.nextPageAvailable = false;
+        } else {
+          state.nextPageAvailable = true;
+        }
+        state.isLoading = false;
+        state.error = null;
       })
       .addCase(getUserByIdThunk.fulfilled, (state, action) => {
         state.currentUser = action.payload.user;
+        state.isLoading = false;
+        state.error = null;
       })
       .addCase(
         addNewUserThunk.fulfilled,
@@ -71,7 +84,7 @@ const usersSlice = createSlice({
         ),
         (state, action) => {
           state.isLoading = false;
-          state.error = action.payload as string; // Ensure payload type matches
+          state.error = action.payload as string;
         }
       );
   },

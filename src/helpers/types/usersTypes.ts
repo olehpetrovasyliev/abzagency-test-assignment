@@ -8,15 +8,13 @@ export type User = {
   position: string;
   position_id: number;
   photo: string;
-  registration_timestamp?: number;
+  registration_timestamp: number;
 };
 
-export type UserResponse =
-  | {
-      success: true;
-      user: User;
-    }
-
+export type UserResponse = {
+  success: true;
+  user: User;
+};
 
 export type UserToAdd = {
   name: string;
@@ -32,7 +30,6 @@ export type AddUserResponse = {
   message: string;
 };
 
-
 export type UsersList = User[];
 
 export type UsersListResponse = {
@@ -47,7 +44,6 @@ export type UsersListResponse = {
   };
   users: UsersList;
 };
-
 
 export type GetUsersParams = {
   page: number;

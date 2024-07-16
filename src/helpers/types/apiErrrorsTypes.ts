@@ -14,5 +14,4 @@ type NetworkError = {
   message: string;
 };
 
-// Union of all possible error types
 export type ApiError = ValidationError | ServerError | NetworkError;

@@ -4,9 +4,14 @@ export const Button: FC<{
   className?: string;
   func: () => void;
   text: string;
-}> = ({ className, func, text }) => {
+  disabled?: boolean;
+}> = ({ className, func, text, disabled }) => {
   return (
-    <button className={`button ${className}`} onClick={func}>
+    <button
+      className={`button ${className}`}
+      onClick={func}
+      disabled={disabled}
+    >
       {text}
     </button>
   );
