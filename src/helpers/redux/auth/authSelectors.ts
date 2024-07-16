@@ -1,4 +1,4 @@
-import { RootState } from "../../types/redux/reduxConfigTypes";
+import { RootState } from "../../types/reduxConfigTypes";
 import store from "../store";
 
 export const selectToken = (state: RootState) => state.auth.token;
