@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { selectPositions } from "../../../helpers/redux/positions/positionsSelectors";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPositionsThunk } from "../../../helpers/redux/positions/positionsOperations";
+import { Button } from "../../UI/Button";
 
-const AddUserform = () => {
+export const AddUserForm = () => {
   const positions = useSelector(selectPositions);
   const dispatch = useDispatch();
 
@@ -14,32 +15,33 @@ const AddUserform = () => {
   return (
     <form className="addUser__form">
       <div className="addUser__form-field">
-        <label htmlFor="name">Name</label>
         <input type="text" className="addUser__input-text" name="name" />
+        <label htmlFor="name">Name</label>
       </div>
 
       <div className="addUser__form-field">
-        <label htmlFor="email">Email</label>
         <input type="email" className="addUser__input-text" name="email" />
+        <label htmlFor="email">Email</label>
       </div>
 
       <div className="addUser__form-field">
-        <label htmlFor="Phone">Phone</label>
         <input type="text" className="addUser__input-text" name="phone" />
+        <label htmlFor="Phone">Phone</label>
       </div>
 
       {positions?.map((pos) => (
         <div className="addUser__form-field">
-          <label htmlFor="position_id">{pos.name}</label>
           <input type="radio" value={pos.id} name="position_id" />
+          <label htmlFor="position_id">{pos.name}</label>
         </div>
       ))}
 
       <div className="addUser__form-field">
-        <input type="file" className="addUser__input-media" />
+        <input type="file" className="addUser__input-media" name="media" />
+        <label htmlFor="media">Choose file</label>
       </div>
+
+      <Button type="submit">Sign up</Button>
     </form>
   );
 };
-
-export default AddUserform;

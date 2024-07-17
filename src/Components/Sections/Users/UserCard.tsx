@@ -11,15 +11,17 @@ export const UserCard: FC<User> = ({
 }) => {
   return (
     <li className="users__item" key={id}>
-      <div className="user__item-media">
+      <div className="users__item-media">
         <img src={photo} alt={`${name}'s photo}`} className="users__item-img" />
       </div>
 
-      <p>{name}</p>
+      <p className="users__item-name">{name}</p>
 
-      <p>{position}</p>
-      <p>{email}</p>
-      <p>{phone}</p>
+      <div className="users__item-info">
+        <p>{position}</p>
+        <p>{email}</p>
+        <p>{phone}</p>
+      </div>
     </li>
   );
 };

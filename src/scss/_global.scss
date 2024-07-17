@@ -1,11 +1,55 @@
 @import "./mixins";
 @import "./variables";
 
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+body {
+  background-color: $color-background;
+  font-family: "Nunito", sans-serif;
+  color: $color-black;
+  font-weight: 400;
+}
+
 .title {
+  text-align: center;
+  font-size: 40px;
 }
 
 .text {
 }
 
 .button {
+  cursor: pointer;
+
+  display: block;
+  margin: 0 auto;
+  padding: 4px 22px;
+  border-radius: 80px;
+  border: none;
+  font-size: 16px;
+  line-height: 26px;
+
+  transition: all $transition-time-default linear;
+
+  &:disabled {
+    background: $color-gray;
+    cursor: not-allowed;
+  }
+
+  &-primary {
+    background: $color-primary;
+
+    &:not(:disabled):hover {
+      background: $color-primary-hover;
+    }
+  }
 }

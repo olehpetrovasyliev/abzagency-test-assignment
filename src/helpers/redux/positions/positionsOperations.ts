@@ -4,7 +4,7 @@ import axios from "axios";
 
 export const getAllPositionsThunk = createAsyncThunk<
   PositionsResponse,
-  any,
+  void,
   {}
 >("positions/getAll", async (_, { rejectWithValue }) => {
   try {

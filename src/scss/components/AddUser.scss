@@ -1,2 +1,10 @@
 @import "../mixins";
 @import "../variables";
+
+.addUser {
+  padding: 70px 0 100px;
+
+  &__container {
+    @include container;
+  }
+}

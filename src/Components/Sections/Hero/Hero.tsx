@@ -23,7 +23,12 @@ export const Hero = () => {
             Front-End Development keeps evolving.
           </p>
         </div>
-        <Button text="Sign up" func={getToken} className="button-primary" />
+        <Button
+          text="Sign up"
+          func={getToken}
+          className="button-primary"
+          type="button"
+        />
       </div>
     </section>
   );

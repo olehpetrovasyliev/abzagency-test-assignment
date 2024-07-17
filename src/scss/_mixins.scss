@@ -28,3 +28,9 @@
   visibility: hidden;
   appearance: none;
 }
+
+@mixin textOverflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

@@ -5,12 +5,14 @@ export const Button: FC<{
   func: () => void;
   text: string;
   disabled?: boolean;
-}> = ({ className, func, text, disabled }) => {
+  type: "button" | "submit" | "reset";
+}> = ({ className, func, text, disabled, type }) => {
   return (
     <button
       className={`button ${className}`}
       onClick={func}
       disabled={disabled}
+      type={type}
     >
       {text}
     </button>

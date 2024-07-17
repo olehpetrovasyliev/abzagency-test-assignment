@@ -14,22 +14,23 @@ export const UsersSection = () => {
   const usersArray = useSelector(selectUsers);
   const isNextPageAvailable = useSelector(selectNextPageAvailable);
 
-  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(6);
 
   useEffect(() => {
-    dispatch(getAllUsersThunk({ page, count: 6 }));
-  }, [dispatch, page]);
+    dispatch(getAllUsersThunk({ page: 1, count }));
+  }, [dispatch, count]);
 
   return (
     <section className="users">
       <div className="users__container">
-        <h1 className="users__title">Working with GET request</h1>
+        <h1 className="title users__title">Working with GET request</h1>
         <UsersListMarkup arr={usersArray} />
         <Button
           text="Show more"
-          func={() => setPage((prev) => prev + 1)}
+          func={() => setCount((prev) => prev + 6)}
           disabled={!isNextPageAvailable}
           className="button-primary"
+          type="button"
         />
       </div>
     </section>
