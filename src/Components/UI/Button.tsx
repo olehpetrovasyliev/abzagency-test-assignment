@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 export const Button: FC<{
   className?: string;
-  func: () => void;
+  func?: () => void;
   text: string;
   disabled?: boolean;
   type: "button" | "submit" | "reset";

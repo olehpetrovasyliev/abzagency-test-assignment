@@ -21,7 +21,7 @@ export const UsersSection = () => {
   }, [dispatch, count]);
 
   return (
-    <section className="users">
+    <section className="users" id="users">
       <div className="users__container">
         <h1 className="title users__title">Working with GET request</h1>
         <UsersListMarkup arr={usersArray} />

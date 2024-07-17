@@ -17,14 +17,15 @@ body {
   font-family: "Nunito", sans-serif;
   color: $color-black;
   font-weight: 400;
+  font-size: 16px;
+  line-height: 26px;
+  scroll-behavior: smooth;
 }
 
 .title {
   text-align: center;
   font-size: 40px;
-}
-
-.text {
+  line-height: 40px;
 }
 
 .button {
@@ -43,6 +44,7 @@ body {
   &:disabled {
     background: $color-gray;
     cursor: not-allowed;
+    color: $color-white;
   }
 
   &-primary {

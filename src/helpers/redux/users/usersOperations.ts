@@ -49,7 +49,9 @@ export const addNewUserThunk = createAsyncThunk<
     formData.append("name", user.name);
     formData.append("email", user.email);
     formData.append("phone", user.phone);
-    formData.append("media", user.media);
+    if (user.photo) {
+      formData.append("photo", user.photo);
+    }
     formData.append("position_id", String(user.position_id));
 
     const token = getState().auth.token;

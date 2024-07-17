@@ -1,2 +1,58 @@
 @import "../mixins";
 @import "../variables";
+
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("src/assets/heroBg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  padding: 100px 0 71px;
+
+  @media only screen and (min-width: $breakpoint-tablet) {
+    padding: 89px 0 88px;
+  }
+
+  @media only screen and (min-width: $breakpoint-desktop) {
+    padding: 224px 0 163px;
+  }
+
+  @media only screen and (min-width: $breakpoint-huge) {
+    padding: 224px 0 163px;
+  }
+
+  @media only screen and (min-width: $breakpoint-huge) {
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  &__container {
+    @include container;
+
+    @media only screen and (min-width: $breakpoint-huge) {
+      max-width: 1170px;
+      background: none;
+    }
+  }
+
+  &__content {
+    max-width: 328px;
+    margin: 0 auto;
+    text-align: center;
+    color: $color-white;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      max-width: 380px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 21px;
+  }
+
+  &__text {
+    margin-bottom: 32px;
+  }
+}

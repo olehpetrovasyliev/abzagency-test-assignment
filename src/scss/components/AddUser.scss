@@ -4,7 +4,139 @@
 .addUser {
   padding: 70px 0 100px;
 
+  @media only screen and (min-width: $breakpoint-tablet) {
+    padding: 89px 0 88px;
+  }
+
+  @media only screen and (min-width: $breakpoint-desktop) {
+    padding: 224px 0 163px;
+  }
+
+  @media only screen and (min-width: $breakpoint-huge) {
+    padding: 224px 0 163px;
+  }
+
   &__container {
     @include container;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 328px;
+
+    @media only screen and (min-width: $breakpoint-tablet) {
+      max-width: 380px;
+    }
+
+    &-field {
+      &-text {
+        position: relative;
+        margin-bottom: 50px;
+
+        &:last-child {
+          margin-bottom: 43px;
+        }
+      }
+      &-radio {
+        margin-bottom: 47px;
+      }
+      &-media {
+        margin-bottom: 50px;
+      }
+    }
+
+    &-label {
+      &-text {
+        color: $color-gray-label;
+        background: $color-background;
+        position: absolute;
+        top: 25%;
+        left: 16px;
+        transition: all $transition-time-default linear;
+      }
+
+      &-radio {
+        cursor: pointer;
+        display: flex;
+        gap: 12px;
+        &:not(:first-child) {
+          margin-top: 7px;
+        }
+      }
+
+      &-media {
+        display: block;
+        cursor: pointer;
+        border: 1px solid $color-black;
+        padding: 14px 0;
+      }
+    }
+  }
+
+  &__input {
+    &-text {
+      width: 328px;
+      height: 54px;
+      padding: 14px 0 14px 16px;
+
+      border: 1px solid $color-gray-border;
+      outline: $color-gray-border;
+      border-radius: 4px;
+
+      @media only screen and (min-width: $breakpoint-tablet) {
+        width: 380px;
+      }
+
+      &:focus + .addUser__form-label-text,
+      &:not(:placeholder-shown) + .addUser__form-label-text {
+        transform: translateY(-100%);
+      }
+    }
+
+    &-radio {
+      @include hidden;
+
+      &-icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 100px;
+        border: 2px solid $color-gray-border;
+        position: relative;
+
+        * {
+          display: block;
+          background: $color-secondary;
+          width: 10px;
+          height: 10px;
+          border-radius: 100px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          opacity: 0;
+          transform: translateX(-50%) translateY(-50%);
+        }
+      }
+
+      &:checked + .addUser__input-radio-icon {
+        border-color: $color-secondary;
+        transition: all $transition-time-fast linear;
+
+        * {
+          opacity: 1;
+          transition: all $transition-time-fast linear;
+        }
+      }
+    }
+
+    &-media {
+      @include hidden;
+    }
   }
 }

@@ -20,7 +20,7 @@ export type UserToAdd = {
   name: string;
   email: string;
   phone: string;
-  media: File;
+  photo: File | null;
   position_id: number;
 };
 

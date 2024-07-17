@@ -3,9 +3,10 @@ $color-primary-hover: #ffe302;
 $color-gray: #b4b4b4;
 $color-secondary: #00bdd3;
 $color-background: #f8f8f8;
-$color-background: #f8f8f8;
 $color-white: #ffffff;
 $color-black: #000000;
+$color-gray-border: #d0cfcf;
+$color-gray-label: #7e7e7e;
 
 $breakpoint-mobile: 360px;
 $breakpoint-tablet: 768px;
@@ -13,3 +14,4 @@ $breakpoint-desktop: 1024px;
 $breakpoint-huge: 2560px;
 
 $transition-time-default: 0.5s;
+$transition-time-fast: 0.3s;

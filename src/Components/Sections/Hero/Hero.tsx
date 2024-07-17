@@ -9,7 +9,7 @@ export const Hero = () => {
 
   const getToken = () => dispatch(getTokenThunk());
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       <div className="hero__container">
         <div className="hero__content">
           <h1 className="title hero__title">

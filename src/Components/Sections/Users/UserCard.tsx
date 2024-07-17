@@ -1,5 +1,6 @@
 import React, { FC } from "react";
 import { User } from "../../../helpers/types/usersTypes";
+import userPlaceholder from "../../../assets/photo-cover.svg";
 
 export const UserCard: FC<User> = ({
   id,
@@ -12,7 +13,11 @@ export const UserCard: FC<User> = ({
   return (
     <li className="users__item" key={id}>
       <div className="users__item-media">
-        <img src={photo} alt={`${name}'s photo}`} className="users__item-img" />
+        <img
+          src={photo || userPlaceholder}
+          alt={`${name}'s photo}`}
+          className="users__item-img"
+        />
       </div>
 
       <p className="users__item-name">{name}</p>

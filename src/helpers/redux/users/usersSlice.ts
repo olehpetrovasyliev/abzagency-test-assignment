@@ -43,7 +43,7 @@ const usersSlice = createSlice({
     builder
       .addCase(getAllUsersThunk.fulfilled, (state, action) => {
         state.usersList = [...action.payload.users].sort((a, b): any => {
-          return a.registration_timestamp - b.registration_timestamp;
+          return b.registration_timestamp - a.registration_timestamp;
         });
         if (action.payload.links.next_url === null) {
           state.nextPageAvailable = false;

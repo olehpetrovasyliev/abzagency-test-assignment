@@ -8,7 +8,7 @@ export const UsersListMarkup: FC<UsersListComponentProps> = ({ arr }) => {
   return (
     <ul className="users__list">
       {arr.map((el: User) => (
-        <UserCard {...el} />
+        <UserCard {...el} key={el.id} />
       ))}
     </ul>
   );
