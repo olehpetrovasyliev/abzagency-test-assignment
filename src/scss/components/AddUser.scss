@@ -73,12 +73,38 @@
       &-media {
         display: block;
         cursor: pointer;
-        border: 1px solid $color-black;
-        padding: 14px 0;
+        display: flex;
+
+        &-btn {
+          color: $color-black;
+          border-radius: 4px 0 0 4px;
+          padding: 14px 15px;
+          border: 1px solid $color-black;
+          width: 83px;
+        }
+
+        &-info {
+          color: $color-gray-border;
+          border-radius: 0 4px 4px 0;
+          padding: 14px 16px;
+          border: 1px solid $color-gray-border;
+          border-left: none;
+          width: 245px;
+
+          @media only screen and (min-width: $breakpoint-tablet) {
+            width: 297px;
+          }
+        }
       }
     }
   }
 
+  &-inputTip {
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 16px;
+    color: $color-gray-label;
+  }
   &__input {
     &-text {
       width: 328px;

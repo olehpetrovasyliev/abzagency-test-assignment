@@ -136,7 +136,9 @@ export const AddUserForm = () => {
         >
           Phone
         </label>
+        <p className="addUser__form-inputTip">+38 (XXX) XX XX</p>
       </div>
+
       <div className="addUser__form-field addUser__form-field-radio">
         {positions?.map((pos) => (
           <>
@@ -198,114 +200,12 @@ export const AddUserForm = () => {
   );
 };
 
-// import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useFormik } from "formik";
-// import { selectPositions } from "../../../helpers/redux/positions/positionsSelectors";
-// import { getAllPositionsThunk } from "../../../helpers/redux/positions/positionsOperations";
-// import { Button } from "../../UI/Button";
-// import { AppDispatch } from "../../../helpers/types/reduxConfigTypes";
-// import * as Yup from "yup";
+//1 file input styles
+//2 inputs focus and invalid
 
-// export const AddUserForm = () => {
-//   const positions = useSelector(selectPositions);
-//   const dispatch: AppDispatch = useDispatch();
+//3 new user adding logic
+//4 refresh on new user add
 
-//   useEffect(() => {
-//     dispatch(getAllPositionsThunk());
-//   }, [dispatch]);
+//5 header styles
 
-//   return (
-//     <form className="addUser__form" onSubmit={formik.handleSubmit}>
-//       <div className="addUser__form-field addUser__form-field-text">
-//         <input
-//           type="text"
-//           className="addUser__input-text"
-//           name="name"
-//           id="name"
-//           onChange={formik.handleChange}
-//           value={formik.values.name}
-//         />
-//         <label
-//           htmlFor="name"
-//           className="addUser__form-label addUser__form-label-text"
-//         >
-//           Name
-//         </label>
-//       </div>
-
-//       <div className="addUser__form-field addUser__form-field-text">
-//         <input
-//           type="email"
-//           className="addUser__input-text"
-//           name="email"
-//           id="email"
-//           onChange={formik.handleChange}
-//           value={formik.values.email}
-//         />
-//         <label
-//           htmlFor="email"
-//           className="addUser__form-label addUser__form-label-text"
-//         >
-//           Email
-//         </label>
-//       </div>
-
-//       <div className="addUser__form-field addUser__form-field-text">
-//         <input
-//           type="text"
-//           className="addUser__input-text"
-//           name="phone"
-//           id="phone"
-//           onChange={formik.handleChange}
-//           value={formik.values.phone}
-//         />
-//         <label
-//           htmlFor="phone"
-//           className="addUser__form-label addUser__form-label-text"
-//         >
-//           Phone
-//         </label>
-//       </div>
-
-//       <div className="addUser__form-field addUser__form-field-radio">
-//         {positions?.map((pos) => (
-//           <div key={pos.id}>
-//             <label
-//               htmlFor={`position_id${pos.id}`}
-//               className="addUser__form-label addUser__form-label-radio"
-//             >
-//               <input
-//                 type="radio"
-//                 value={pos.id}
-//                 name="position_id"
-//                 className="addUser__input-radio"
-//                 id={`position_id${pos.id}`}
-//                 onChange={formik.handleChange}
-//               />
-//               <span className="addUser__input-radio-icon">
-//                 <span></span>
-//               </span>
-//               {pos.name}
-//             </label>
-//           </div>
-//         ))}
-//       </div>
-
-//       <div className="addUser__form-field addUser__form-field-media">
-//         <input
-//           type="file"
-//           className="addUser__input-media"
-//           name="photo"
-//           id="media"
-//           onChange={(event: any) => {
-//             formik.setFieldValue("photo", event.currentTarget.files[0]);
-//           }}
-//         />
-
-//       </div>
-
-//       <Button type="submit" text="Sign up" className="button-primary" />
-//     </form>
-//   );
-// };
+//6 meta
