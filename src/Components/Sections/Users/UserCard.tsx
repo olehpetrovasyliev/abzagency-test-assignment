@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { User } from "../../../helpers/types/usersTypes";
 import userPlaceholder from "../../../assets/photo-cover.svg";
 
@@ -10,13 +10,20 @@ export const UserCard: FC<User> = ({
   email,
   phone,
 }) => {
+  const [imgSrc, setImgSrc] = useState(photo || userPlaceholder);
+
+  const handleImageError = () => {
+    setImgSrc(userPlaceholder);
+  };
+
   return (
     <li className="users__item" key={id}>
       <div className="users__item-media">
         <img
-          src={photo || userPlaceholder}
-          alt={`${name}'s photo}`}
+          src={imgSrc}
+          alt={`${name}'s photo`}
           className="users__item-img"
+          onError={handleImageError}
         />
       </div>
 
