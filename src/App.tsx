@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import { Hero } from "./Components/Sections/Hero/Hero";
 import { UsersSection } from "./Components/Sections/Users/UsersSection";
+import { AddUserSection } from "./Components/Sections/AddUser/AddUserSection";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,6 +32,7 @@ function App() {
       </p> */}
       <Hero />
       <UsersSection />
+      <AddUserSection />
     </>
   );
 }

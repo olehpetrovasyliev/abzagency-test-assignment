@@ -6,7 +6,7 @@ export const getAllPositionsThunk = createAsyncThunk<
   PositionsResponse,
   any,
   {}
->("users/getAll", async (_, { rejectWithValue }) => {
+>("positions/getAll", async (_, { rejectWithValue }) => {
   try {
     const res = await axios.get<PositionsResponse>(
       "https://frontend-test-assignment-api.abz.agency/api/v1/positions"

@@ -23,11 +23,13 @@ export const UsersSection = () => {
   return (
     <section className="users">
       <div className="users__container">
+        <h1 className="users__title">Working with GET request</h1>
         <UsersListMarkup arr={usersArray} />
         <Button
           text="Show more"
           func={() => setPage((prev) => prev + 1)}
           disabled={!isNextPageAvailable}
+          className="button-primary"
         />
       </div>
     </section>
