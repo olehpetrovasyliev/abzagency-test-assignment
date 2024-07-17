@@ -25,8 +25,6 @@
   }
 
   &__form {
-    display: flex;
-    flex-direction: column;
     margin: 0 auto;
     max-width: 328px;
 
@@ -37,10 +35,8 @@
     &-field {
       &-text {
         position: relative;
-        margin-bottom: 50px;
-
-        &:last-child {
-          margin-bottom: 43px;
+        &:not(:first-child) {
+          margin-top: 50px;
         }
       }
       &-radio {
@@ -79,7 +75,7 @@
           color: $color-black;
           border-radius: 4px 0 0 4px;
           padding: 14px 15px;
-          border: 1px solid $color-black;
+          border: 2px solid $color-black;
           width: 83px;
         }
 
@@ -87,7 +83,7 @@
           color: $color-gray-border;
           border-radius: 0 4px 4px 0;
           padding: 14px 16px;
-          border: 1px solid $color-gray-border;
+          border: 2px solid $color-gray-border;
           border-left: none;
           width: 245px;
 
@@ -97,23 +93,31 @@
         }
       }
     }
+    &-inputTip {
+      font-size: 12px;
+      line-height: 14px;
+      color: $color-gray-label;
+      margin: 4px 0 43px 16px;
+    }
   }
 
-  &-inputTip {
-    font-size: 12px;
-    line-height: 14px;
-    margin-left: 16px;
-    color: $color-gray-label;
-  }
   &__input {
     &-text {
       width: 328px;
       height: 54px;
       padding: 14px 0 14px 16px;
 
-      border: 1px solid $color-gray-border;
+      border: 2px solid $color-gray-border;
       outline: $color-gray-border;
       border-radius: 4px;
+
+      invalidInput {
+        border-color: $color-red-invalid;
+
+        + .addUser__form-label-text {
+          color: $color-red-invalid;
+        }
+      }
 
       @media only screen and (min-width: $breakpoint-tablet) {
         width: 380px;

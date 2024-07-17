@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { selectPositions } from "../../../helpers/redux/positions/positionsSelectors";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllPositionsThunk } from "../../../helpers/redux/positions/positionsOperations";
@@ -7,6 +7,7 @@ import { AppDispatch } from "../../../helpers/types/reduxConfigTypes";
 import { UserToAdd } from "../../../helpers/types/usersTypes";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { addNewUserThunk } from "../../../helpers/redux/users/usersOperations";
 
 export const AddUserForm = () => {
   const positions = useSelector(selectPositions);
@@ -74,17 +75,21 @@ export const AddUserForm = () => {
       ),
   });
 
+  const handleSubmit = (values: UserToAdd) => dispatch(addNewUserThunk(values));
+
   const formik = useFormik({
     initialValues,
     validationSchema,
-    onSubmit: (values) => {
-      console.log(values);
-    },
+    onSubmit: handleSubmit,
   });
 
   return (
     <form className="addUser__form" onSubmit={formik.handleSubmit}>
-      <div className="addUser__form-field addUser__form-field-text">
+      <div
+        className={`addUser__form-field addUser__form-field-text ${
+          formik.errors.name ? "invalidInput" : ""
+        }`}
+      >
         <input
           type="text"
           className="addUser__input-text"
@@ -101,8 +106,17 @@ export const AddUserForm = () => {
           Name
         </label>
       </div>
+      <p className="addUser__form-inputTip">
+        {formik.errors.name && formik.touched.name
+          ? formik.errors.name
+          : "John Johnson"}
+      </p>
 
-      <div className="addUser__form-field addUser__form-field-text">
+      <div
+        className={`addUser__form-field addUser__form-field-text ${
+          formik.errors.email ? "invalidInput" : ""
+        }`}
+      >
         <input
           type="email"
           className="addUser__input-text"
@@ -119,8 +133,17 @@ export const AddUserForm = () => {
           Email
         </label>
       </div>
+      <p className="addUser__form-inputTip">
+        {formik.errors.email && formik.touched.email
+          ? formik.errors.email
+          : "example@mail.com"}
+      </p>
 
-      <div className="addUser__form-field addUser__form-field-text">
+      <div
+        className={`addUser__form-field addUser__form-field-text ${
+          formik.errors.email ? "invalidInput" : ""
+        }`}
+      >
         <input
           type="text"
           className="addUser__input-text"
@@ -136,13 +159,17 @@ export const AddUserForm = () => {
         >
           Phone
         </label>
-        <p className="addUser__form-inputTip">+38 (XXX) XX XX</p>
       </div>
+      <p className="addUser__form-inputTip">
+        {formik.errors.phone && formik.touched.phone
+          ? formik.errors.phone
+          : "+38 (XXX) XX XX"}
+      </p>
 
       <div className="addUser__form-field addUser__form-field-radio">
         {positions?.map((pos) => (
           <>
-            <div className="">
+            <div>
               <label
                 htmlFor={`position_id${pos.id}`}
                 className="addUser__form-label addUser__form-label-radio"
@@ -171,6 +198,7 @@ export const AddUserForm = () => {
           className="addUser__input-media"
           name="photo"
           id="media"
+          accept=".jpg,.jpeg"
           onChange={(event: any) => {
             formik.setFieldValue("photo", event.currentTarget.files[0]);
           }}
@@ -200,12 +228,10 @@ export const AddUserForm = () => {
   );
 };
 
-//1 file input styles
-//2 inputs focus and invalid
+//1 refresh on new user add
 
-//3 new user adding logic
-//4 refresh on new user add
+//2 inputs focus and invalid form validation
 
-//5 header styles
-
-//6 meta
+//3 placeholder for photo
+//4 loader
+//5 meta

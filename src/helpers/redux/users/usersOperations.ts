@@ -66,6 +66,7 @@ export const addNewUserThunk = createAsyncThunk<
         },
       }
     );
+
     return res.data;
   } catch (error: any) {
     return rejectWithValue(error.message);

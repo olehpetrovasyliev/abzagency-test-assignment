@@ -1,2 +1,38 @@
 @import "../mixins";
 @import "../variables";
+
+.header {
+  padding: 13px 0;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: $color-white;
+  width: 100%;
+
+  @media only screen and (min-width: $breakpoint-tablet) {
+    padding: 17px 0;
+  }
+
+  &__container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logoWrapper {
+    width: 104px;
+    height: 26px;
+  }
+
+  &__logo {
+    @include defaultImage;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 10px;
+  }
+}

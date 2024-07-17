@@ -11,11 +11,14 @@ import {
   UsersList,
   User,
 } from "../../types/usersTypes";
+import axios from "axios";
 
 type UsersState = {
   usersList: UsersList | [];
   currentUser: User | {};
   nextPageAvailable: boolean;
+  isAdded: boolean;
+
   isLoading: boolean;
   error: string | null;
 };
@@ -24,6 +27,7 @@ const initialState: UsersState = {
   usersList: [],
   currentUser: {},
   nextPageAvailable: true,
+  isAdded: false,
   isLoading: false,
   error: null,
 };
@@ -61,6 +65,8 @@ const usersSlice = createSlice({
       .addCase(
         addNewUserThunk.fulfilled,
         (state, action: PayloadAction<AddUserResponse>) => {
+          // state.usersList.unshift();
+          state.isAdded = true;
           state.error = null;
           state.isLoading = false;
         }

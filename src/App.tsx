@@ -7,9 +7,11 @@ function App() {
   return (
     <>
       <Header />
-      <Hero />
-      <UsersSection />
-      <AddUserSection />
+      <main>
+        <Hero />
+        <UsersSection />
+        <AddUserSection />
+      </main>
     </>
   );
 }
