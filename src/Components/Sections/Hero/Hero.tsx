@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "../../UI/Button";
 import { useDispatch } from "react-redux";
 import { getTokenThunk } from "../../../helpers/redux/auth/authOperations";

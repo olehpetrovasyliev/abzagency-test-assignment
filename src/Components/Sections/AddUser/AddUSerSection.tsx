@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectIsUSerAdded } from "../../../helpers/redux/users/usersSelectors";
 import { AddUserForm } from "./AddUserForm";
-import { AddUserSuccess } from "./AddUserSuccess";
+import { AddUserSuccess } from "./AddUserSuccess.tsx";
 
 export const AddUserSection = () => {
   const isAdded = useSelector(selectIsUSerAdded);
