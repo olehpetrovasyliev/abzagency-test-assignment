@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../../UI/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch } from "../../../helpers/types/reduxConfigTypes";

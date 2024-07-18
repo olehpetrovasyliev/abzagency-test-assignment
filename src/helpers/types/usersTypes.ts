@@ -1,5 +1,3 @@
-import { ApiError } from "./apiErrrorsTypes";
-
 export type User = {
   id: number;
   name: string;

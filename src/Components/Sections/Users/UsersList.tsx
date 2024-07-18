@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { User, UsersList } from "../../../helpers/types/usersTypes";
 import { UserCard } from "./UserCard";
 import { selectLoading } from "../../../helpers/redux/users/usersSelectors";

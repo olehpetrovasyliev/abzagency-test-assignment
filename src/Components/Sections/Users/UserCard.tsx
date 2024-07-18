@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { User } from "../../../helpers/types/usersTypes";
 import userPlaceholder from "../../../assets/photo-cover.svg";
 

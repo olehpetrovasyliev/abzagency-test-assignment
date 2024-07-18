@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { PositionsResponse } from "../../types/positionsTypes";
-import axios from "axios";
 import { api } from "../../api/api";
 
 export const getAllPositionsThunk = createAsyncThunk<
