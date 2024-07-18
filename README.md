@@ -1,30 +1,63 @@
-# React + TypeScript + Vite
+# Test Assignment README
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Introduction
 
-Currently, two official plugins are available:
+This test assignment involves creating a form to add a user with specific validation requirements. The form includes fields for the user's name, email, phone, position ID, and a photo. This README provides an overview of the form, the validation rules, and how to use the code.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Form Fields
 
-## Expanding the ESLint configuration
+The `AddUserForm` includes the following fields:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **name**: The name of the user.
+- **email**: The email address of the user.
+- **phone**: The phone number of the user.
+- **position_id**: The ID of the user's position.
+- **photo**: A photo of the user.
 
-- Configure the top-level `parserOptions` property like this:
+## Validation Rules
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
+Each field in the `AddUserForm` has specific validation rules:
+
+- **name**: Must be between 2 and 60 characters.
+- **email**: Must be a valid email address according to RFC2822.
+- **phone**: Must start with the country code of Ukraine, +380.
+- **position_id**: Must be a valid user position ID.
+- **photo**: Must be a JPG or JPEG image, at least 70x70 pixels, and no larger than 5MB.
+
+## Usage
+
+1. Clone the repository to your local machine.
+   ```bash
+   git clone <repository-url>
+   ```
+2. Navigate to the project directory.
+   ```bash
+   cd <project-directory>
+   ```
+3. Open the project in your preferred IDE or code editor.
+4. Ensure all dependencies are installed (if applicable).
+5. Run the application.
+
+## Example
+
+Below is an example of how to instantiate and use the `AddUserForm`:
+
+```python
+from form_module import AddUserForm
+
+form_data = {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "+380123456789",
+    "position_id": 1,
+    "photo": "path/to/photo.jpg"
 }
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+form = AddUserForm(**form_data)
+
+if form.validate():
+    print("Form is valid")
+else:
+    print("Form is invalid")
+    print(form.errors)
+```
