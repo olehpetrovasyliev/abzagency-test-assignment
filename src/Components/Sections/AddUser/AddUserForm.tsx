@@ -228,8 +228,6 @@ export const AddUserForm = () => {
   );
 };
 
-//1 refresh on new user add
-
 //2 inputs focus and invalid form validation
 
 //3 loader
