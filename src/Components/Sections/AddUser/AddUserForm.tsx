@@ -231,7 +231,3 @@ export const AddUserForm = () => {
 //2 inputs focus and invalid form validation
 
 //3 loader
-
-//4 meta
-
-//fix mobile header
