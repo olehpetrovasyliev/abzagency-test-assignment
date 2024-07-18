@@ -232,7 +232,6 @@ export const AddUserForm = () => {
 
 //2 inputs focus and invalid form validation
 
-//3 placeholder for photo
-//4 loader
+//3 loader
 
-//5 meta
+//4 meta
