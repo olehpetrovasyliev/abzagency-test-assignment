@@ -54,12 +54,13 @@
         position: absolute;
         top: 25%;
         left: 16px;
-        transition: all $transition-time-default linear;
+        transition: transform $transition-time-default linear;
       }
 
       &-radio {
         cursor: pointer;
         display: flex;
+        align-items: center;
         gap: 12px;
         &:not(:first-child) {
           margin-top: 7px;
@@ -111,8 +112,23 @@
       outline: $color-gray-border;
       border-radius: 4px;
 
-      invalidInput {
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+
+      &:focus {
+        border-color: $color-black;
+        color: $color-black;
+
+        + .addUser__form-label-text {
+          color: $color-black;
+        }
+      }
+
+      &.invalidInput {
         border-color: $color-red-invalid;
+        outline: $color-red-invalid;
+        color: $color-red-invalid;
 
         + .addUser__form-label-text {
           color: $color-red-invalid;
@@ -181,4 +197,8 @@
       @include defaultImage;
     }
   }
+}
+
+.invalidTip {
+  color: $color-red-invalid;
 }

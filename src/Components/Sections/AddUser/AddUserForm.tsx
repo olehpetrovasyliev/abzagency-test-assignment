@@ -8,6 +8,7 @@ import { UserToAdd } from "../../../helpers/types/usersTypes";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { addNewUserThunk } from "../../../helpers/redux/users/usersOperations";
+import { useIsTouched } from "../../../helpers/hooks/useIsTouched";
 
 export const AddUserForm = () => {
   const positions = useSelector(selectPositions);
@@ -83,20 +84,23 @@ export const AddUserForm = () => {
     onSubmit: handleSubmit,
   });
 
+  const nameField = useIsTouched();
+  const emailField = useIsTouched();
+  const phoneField = useIsTouched();
+
   return (
     <form className="addUser__form" onSubmit={formik.handleSubmit}>
-      <div
-        className={`addUser__form-field addUser__form-field-text ${
-          formik.errors.name ? "invalidInput" : ""
-        }`}
-      >
+      <div className={"addUser__form-field addUser__form-field-text"}>
         <input
           type="text"
-          className="addUser__input-text"
+          className={`addUser__input-text  ${
+            formik.errors.name && nameField.isTouched ? "invalidInput" : ""
+          }`}
           name="name"
           placeholder=""
           id="name"
           onChange={formik.handleChange}
+          onBlur={nameField.handleBlur}
           value={formik.values.name}
         />
         <label
@@ -106,24 +110,27 @@ export const AddUserForm = () => {
           Name
         </label>
       </div>
-      <p className="addUser__form-inputTip">
-        {formik.errors.name && formik.touched.name
+      <p
+        className={`addUser__form-inputTip ${
+          nameField.isTouched && formik.errors.name ? "invalidTip" : ""
+        }`}
+      >
+        {formik.errors.name && nameField.isTouched
           ? formik.errors.name
           : "John Johnson"}
       </p>
 
-      <div
-        className={`addUser__form-field addUser__form-field-text ${
-          formik.errors.email ? "invalidInput" : ""
-        }`}
-      >
+      <div className={"addUser__form-field addUser__form-field-text"}>
         <input
           type="email"
-          className="addUser__input-text"
+          className={`addUser__input-text  ${
+            formik.errors.email && emailField.isTouched ? "invalidInput" : ""
+          }`}
           name="email"
           placeholder=""
           id="email"
           onChange={formik.handleChange}
+          onBlur={emailField.handleBlur}
           value={formik.values.email}
         />
         <label
@@ -133,24 +140,27 @@ export const AddUserForm = () => {
           Email
         </label>
       </div>
-      <p className="addUser__form-inputTip">
-        {formik.errors.email && formik.touched.email
+      <p
+        className={`addUser__form-inputTip ${
+          emailField.isTouched && formik.errors.email ? "invalidTip" : ""
+        }`}
+      >
+        {formik.errors.email && emailField.isTouched
           ? formik.errors.email
           : "example@mail.com"}
       </p>
 
-      <div
-        className={`addUser__form-field addUser__form-field-text ${
-          formik.errors.email ? "invalidInput" : ""
-        }`}
-      >
+      <div className={"addUser__form-field addUser__form-field-text"}>
         <input
           type="text"
-          className="addUser__input-text"
+          className={`addUser__input-text  ${
+            formik.errors.phone && phoneField.isTouched ? "invalidInput" : ""
+          }`}
           name="phone"
           placeholder=""
           id="phone"
           onChange={formik.handleChange}
+          onBlur={phoneField.handleBlur}
           value={formik.values.phone}
         />
         <label
@@ -160,8 +170,12 @@ export const AddUserForm = () => {
           Phone
         </label>
       </div>
-      <p className="addUser__form-inputTip">
-        {formik.errors.phone && formik.touched.phone
+      <p
+        className={`addUser__form-inputTip ${
+          phoneField.isTouched && formik.errors.phone ? "invalidTip" : ""
+        }`}
+      >
+        {formik.errors.phone && phoneField.isTouched
           ? formik.errors.phone
           : "+38 (XXX) XX XX"}
       </p>
@@ -169,7 +183,7 @@ export const AddUserForm = () => {
       <div className="addUser__form-field addUser__form-field-radio">
         {positions?.map((pos) => (
           <>
-            <div>
+            <div key={pos.id}>
               <label
                 htmlFor={`position_id${pos.id}`}
                 className="addUser__form-label addUser__form-label-radio"
@@ -227,7 +241,3 @@ export const AddUserForm = () => {
     </form>
   );
 };
-
-//2 inputs focus and invalid form validation
-
-//3 loader

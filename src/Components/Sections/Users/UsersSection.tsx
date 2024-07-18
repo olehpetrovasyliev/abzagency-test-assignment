@@ -14,7 +14,7 @@ export const UsersSection = () => {
   const usersArray = useSelector(selectUsers);
   const isNextPageAvailable = useSelector(selectNextPageAvailable);
 
-  const [count, setCount] = useState(6);
+  const [count, setCount] = useState<number>(6);
 
   useEffect(() => {
     dispatch(getAllUsersThunk({ page: 1, count }));

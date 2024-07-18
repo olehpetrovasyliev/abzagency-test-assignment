@@ -10,7 +10,7 @@ export const UserCard: FC<User> = ({
   email,
   phone,
 }) => {
-  const [imgSrc, setImgSrc] = useState(photo || userPlaceholder);
+  const [imgSrc, setImgSrc] = useState<string>(photo || userPlaceholder);
 
   const handleImageError = () => {
     setImgSrc(userPlaceholder);
