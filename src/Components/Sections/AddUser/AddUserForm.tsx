@@ -78,7 +78,6 @@ export const AddUserForm = () => {
 
   const handleFileChange = (event: any) => {
     const file = event.currentTarget.files[0];
-    console.log("Selected file:", file);
     formik.setFieldValue("photo", file);
     photoField.handleBlur();
   };
