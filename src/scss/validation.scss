@@ -1,0 +1,12 @@
+.invalidInput {
+  border-color: $color-red-invalid;
+  outline: $color-red-invalid;
+
+  + .addUser__form-label-text {
+    color: $color-red-invalid;
+  }
+}
+
+.invalidTip {
+  color: $color-red-invalid;
+}

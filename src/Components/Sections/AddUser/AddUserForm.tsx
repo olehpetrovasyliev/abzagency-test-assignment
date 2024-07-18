@@ -76,6 +76,13 @@ export const AddUserForm = () => {
       ),
   });
 
+  const handleFileChange = (event: any) => {
+    const file = event.currentTarget.files[0];
+    console.log("Selected file:", file);
+    formik.setFieldValue("photo", file);
+    photoField.handleBlur();
+  };
+
   const handleSubmit = (values: UserToAdd) => dispatch(addNewUserThunk(values));
 
   const formik = useFormik({
@@ -87,6 +94,7 @@ export const AddUserForm = () => {
   const nameField = useIsTouched();
   const emailField = useIsTouched();
   const phoneField = useIsTouched();
+  const photoField = useIsTouched();
 
   return (
     <form className="addUser__form" onSubmit={formik.handleSubmit}>
@@ -177,7 +185,7 @@ export const AddUserForm = () => {
       >
         {formik.errors.phone && phoneField.isTouched
           ? formik.errors.phone
-          : "+38 (XXX) XX XX"}
+          : "+380XXXXXXXXX"}
       </p>
 
       <div className="addUser__form-field addUser__form-field-radio">
@@ -213,23 +221,39 @@ export const AddUserForm = () => {
           name="photo"
           id="media"
           accept=".jpg,.jpeg"
-          onChange={(event: any) => {
-            formik.setFieldValue("photo", event.currentTarget.files[0]);
-          }}
+          onBlur={photoField.handleBlur}
+          onChange={handleFileChange}
         />
         <label
           htmlFor="media"
-          className="addUser__form-label addUser__form-label-media"
+          className={`addUser__form-label addUser__form-label-media ${
+            photoField.isTouched && formik.errors.photo ? "invalidInput" : ""
+          }`}
         >
-          <span className="addUser__form-label addUser__form-label-media-btn">
+          <span
+            className={`addUser__form-label-media-btn ${
+              photoField.isTouched && formik.errors.photo ? "invalidInput" : ""
+            } ${photoField.isTouched ? "touched" : ""}`}
+          >
             Upload
           </span>
-          <span className="addUser__form-label addUser__form-label-media-info">
+          <span
+            className={`addUser__form-label-media-info ${
+              photoField.isTouched && formik.errors.photo ? "invalidInput" : ""
+            } ${photoField.isTouched ? "touched" : ""}`}
+          >
             {formik.values.photo
               ? formik.values.photo.name
               : "Upload your photo"}
           </span>
         </label>
+        <p
+          className={`addUser__form-inputTip ${
+            photoField.isTouched && formik.errors.photo ? "invalidTip" : ""
+          }`}
+        >
+          {formik.errors.photo && photoField.isTouched && formik.errors.photo}
+        </p>
       </div>
 
       <Button

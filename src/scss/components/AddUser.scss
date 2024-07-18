@@ -55,6 +55,7 @@
         top: 25%;
         left: 16px;
         transition: transform $transition-time-default linear;
+        padding: 0 4px;
       }
 
       &-radio {
@@ -78,6 +79,9 @@
           padding: 14px 15px;
           border: 2px solid $color-black;
           width: 83px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
 
         &-info {
@@ -90,6 +94,10 @@
 
           @media only screen and (min-width: $breakpoint-tablet) {
             width: 297px;
+          }
+
+          &.touched {
+            color: $color-black;
           }
         }
       }
@@ -125,15 +133,7 @@
         }
       }
 
-      &.invalidInput {
-        border-color: $color-red-invalid;
-        outline: $color-red-invalid;
-        color: $color-red-invalid;
-
-        + .addUser__form-label-text {
-          color: $color-red-invalid;
-        }
-      }
+      // &
 
       @media only screen and (min-width: $breakpoint-tablet) {
         width: 380px;
@@ -197,8 +197,4 @@
       @include defaultImage;
     }
   }
-}
-
-.invalidTip {
-  color: $color-red-invalid;
 }
