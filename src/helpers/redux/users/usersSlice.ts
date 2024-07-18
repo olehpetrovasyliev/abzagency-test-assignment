@@ -7,25 +7,22 @@ import {
 import {
   UsersListResponse,
   UserResponse,
-  AddUserResponse,
   UsersList,
   User,
 } from "../../types/usersTypes";
-import axios from "axios";
 
 type UsersState = {
-  usersList: UsersList | [];
-  currentUser: User | {};
+  usersList: UsersList;
+  currentUser: User | null;
   nextPageAvailable: boolean;
   isAdded: boolean;
-
   isLoading: boolean;
   error: string | null;
 };
 
 const initialState: UsersState = {
   usersList: [],
-  currentUser: {},
+  currentUser: null,
   nextPageAvailable: true,
   isAdded: false,
   isLoading: false,
@@ -37,7 +34,7 @@ const usersSlice = createSlice({
   initialState,
   reducers: {
     clearCurrentUser: (state) => {
-      state.currentUser = {};
+      state.currentUser = null;
     },
     clearError: (state) => {
       state.error = null;
@@ -45,27 +42,29 @@ const usersSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getAllUsersThunk.fulfilled, (state, action) => {
-        state.usersList = [...action.payload.users].sort((a, b): any => {
-          return b.registration_timestamp - a.registration_timestamp;
-        });
-        if (action.payload.links.next_url === null) {
-          state.nextPageAvailable = false;
-        } else {
-          state.nextPageAvailable = true;
+      .addCase(
+        getAllUsersThunk.fulfilled,
+        (state, action: PayloadAction<UsersListResponse>) => {
+          state.usersList = [...action.payload.users].sort(
+            (a, b) => b.registration_timestamp - a.registration_timestamp
+          );
+          state.nextPageAvailable = action.payload.links.next_url !== null;
+          state.isLoading = false;
+          state.error = null;
         }
-        state.isLoading = false;
-        state.error = null;
-      })
-      .addCase(getUserByIdThunk.fulfilled, (state, action) => {
-        state.currentUser = action.payload.user;
-        state.isLoading = false;
-        state.error = null;
-      })
+      )
+      .addCase(
+        getUserByIdThunk.fulfilled,
+        (state, action: PayloadAction<UserResponse>) => {
+          state.currentUser = action.payload.user;
+          state.isLoading = false;
+          state.error = null;
+        }
+      )
       .addCase(
         addNewUserThunk.fulfilled,
-        (state, action: PayloadAction<AddUserResponse>) => {
-          // state.usersList.unshift();
+        (state, action: PayloadAction<User>) => {
+          state.usersList.unshift(action.payload);
           state.isAdded = true;
           state.error = null;
           state.isLoading = false;

@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { PositionsResponse } from "../../types/positionsTypes";
 import axios from "axios";
+import { api } from "../../api/api";
 
 export const getAllPositionsThunk = createAsyncThunk<
   PositionsResponse,
@@ -8,11 +9,8 @@ export const getAllPositionsThunk = createAsyncThunk<
   {}
 >("positions/getAll", async (_, { rejectWithValue }) => {
   try {
-    const res = await axios.get<PositionsResponse>(
-      "https://frontend-test-assignment-api.abz.agency/api/v1/positions"
-    );
-    return res.data;
+    return await api.getPositions();
   } catch (error: any) {
-    return rejectWithValue(error.message);
+    return rejectWithValue(error.response?.data || error.message);
   }
 });

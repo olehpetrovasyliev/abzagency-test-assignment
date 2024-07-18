@@ -26,7 +26,7 @@ export type UserToAdd = {
 
 export type AddUserResponse = {
   success: true;
-  user_id: number;
+  user_id: string;
   message: string;
 };
 
