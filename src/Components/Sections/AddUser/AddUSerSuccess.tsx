@@ -1,6 +1,7 @@
+import { FC } from "react";
 import successImage from "../../../assets/success-image.svg";
 
-export const AddUserSuccess = () => {
+export const AddUserSuccess: FC = () => {
   return (
     <div className="addUSer__success-media">
       <img
