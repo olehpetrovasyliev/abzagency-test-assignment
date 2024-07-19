@@ -1,6 +1,6 @@
 import { Hero } from "./Components/Sections/Hero/Hero";
 import { UsersSection } from "./Components/Sections/Users/UsersSection";
-import { AddUserSection } from "./Components/Sections/AddUser/AddUserSection";
+import { AddUserSection } from "./Components/Sections/AddUser/AddUserSeection";
 import Header from "./Components/UI/Header";
 
 function App() {
