@@ -4,7 +4,7 @@ import { AddUserForm } from "./AddUserForm";
 import { AddUserSuccess } from "./AddUserSuccess";
 import { FC } from "react";
 
-export const AddUserSection:FC = () => {
+export const AddUserSection: FC = () => {
   const isAdded = useSelector(selectIsUSerAdded);
   return (
     <section className="addUser" id="addUser">
