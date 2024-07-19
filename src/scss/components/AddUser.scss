@@ -54,7 +54,7 @@
         position: absolute;
         top: 25%;
         left: 16px;
-        transition: transform $transition-time-default linear;
+        transition: all $transition-time-default linear;
         padding: 0 4px;
       }
 
@@ -119,6 +119,7 @@
       border: 2px solid $color-gray-border;
       outline: $color-gray-border;
       border-radius: 4px;
+      background: $color-background;
 
       font-family: inherit;
       font-size: inherit;
@@ -130,10 +131,9 @@
 
         + .addUser__form-label-text {
           color: $color-black;
+          background: $color-background;
         }
       }
-
-      // &
 
       @media only screen and (min-width: $breakpoint-tablet) {
         width: 380px;
