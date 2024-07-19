@@ -1,63 +1,55 @@
-# Test Assignment README
+# ABZ Agency Test Assignment
 
-## Introduction
+## Project Overview
 
-This test assignment involves creating a form to add a user with specific validation requirements. The form includes fields for the user's name, email, phone, position ID, and a photo. This README provides an overview of the form, the validation rules, and how to use the code.
+This project is a test assignment for ABZ Agency. It demonstrates my ability to work with HTML/CSS mockups, interact with a REST API, and implement front-end validation and business logic using modern web technologies.
 
-## Form Fields
+## Deployment
 
-The `AddUserForm` includes the following fields:
+The project is deployed and can be viewed in a browser at the following link:
+[**Deployed Project Link**](#)
 
-- **name**: The name of the user.
-- **email**: The email address of the user.
-- **phone**: The phone number of the user.
-- **position_id**: The ID of the user's position.
-- **photo**: A photo of the user.
+## Tools and Technologies Used
 
-## Validation Rules
+- **Vite**: For fast build and development server.
+- **React**: For building the user interface.
+- **TypeScript**: For type safety and enhanced development experience.
+- **SCSS**: For styling with CSS preprocessing.
 
-Each field in the `AddUserForm` has specific validation rules:
+## Completed Items
 
-- **name**: Must be between 2 and 60 characters.
-- **email**: Must be a valid email address according to RFC2822.
-- **phone**: Must start with the country code of Ukraine, +380.
-- **position_id**: Must be a valid user position ID.
-- **photo**: Must be a JPG or JPEG image, at least 70x70 pixels, and no larger than 5MB.
+1. **HTML/CSS Mockups**:
 
-## Usage
+   - Implemented the given Figma project and source.
+   - Ensured pixel-perfect and responsive design according to the mockup and style guide.
 
-1. Clone the repository to your local machine.
-   ```bash
-   git clone <repository-url>
-   ```
-2. Navigate to the project directory.
-   ```bash
-   cd <project-directory>
-   ```
-3. Open the project in your preferred IDE or code editor.
-4. Ensure all dependencies are installed (if applicable).
-5. Run the application.
+2. **REST API (GET)**:
 
-## Example
+   - Displaying 6 users on the API request result page, show more buttons adds more 6 users.
+   - "Show more" button functionality implemented and hidden when the last page is reached.
+   - Users sorted by registration date (newest first).
 
-Below is an example of how to instantiate and use the `AddUserForm`:
+3. **REST API (POST) - Registration Form**:
 
-```python
-from form_module import AddUserForm
+   - Implemented front-end validation as per mockups and API documentation.
+   - Handled the business logic of the registration form.
+   - Updated the list of users after successful registration.
+   - Ensured the new user is displayed first after form submission.
+   - User cannot submit form untill all the fiels are filled properly.
+     -User can upload files with only supported by API formats
 
-form_data = {
-    "name": "John Doe",
-    "email": "john.doe@example.com",
-    "phone": "+380123456789",
-    "position_id": 1,
-    "photo": "path/to/photo.jpg"
-}
+## Uncompleted Items
 
-form = AddUserForm(**form_data)
+- **N/A**: All items of the test assignment have been completed successfully.
 
-if form.validate():
-    print("Form is valid")
-else:
-    print("Form is invalid")
-    print(form.errors)
-```
+## Hours Spent
+
+A total of **17.5 hours of pure work** were spent on this assignment.
+
+## Contact Information
+
+- **Name**: Your Name
+- **Email**: your.email@example.com
+- **Phone**: +380 123 456 789
+- **LinkedIn**: Your LinkedIn Profile
+- **GitHub Repository**: GitHub Repository Link

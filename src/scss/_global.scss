@@ -54,6 +54,10 @@ body {
       background: $color-primary-hover;
     }
   }
+
+  &-hidden {
+    @include hidden;
+  }
 }
 
 .loaderWrapper {

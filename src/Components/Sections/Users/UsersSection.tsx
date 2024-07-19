@@ -29,7 +29,9 @@ export const UsersSection = () => {
           text="Show more"
           func={() => setCount((prev) => prev + 6)}
           disabled={!isNextPageAvailable}
-          className="button-primary"
+          className={`button-primary ${
+            isNextPageAvailable ? "button-hidden" : ""
+          }`}
           type="button"
         />
       </div>
