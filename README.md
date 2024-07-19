@@ -7,7 +7,7 @@ This project is a test assignment for ABZ Agency. It demonstrates my ability to 
 ## Deployment
 
 The project is deployed and can be viewed in a browser at the following link:
-[**Deployed Project Link**](#)
+[**https://abzagency-test-assignmentst-assignment.vercel.app/**](https://abzagency-test-assignmentst-assignment.vercel.app/)
 
 ## Tools and Technologies Used
 
@@ -48,8 +48,8 @@ A total of **17.5 hours of pure work** were spent on this assignment.
 
 ## Contact Information
 
-- **Name**: Your Name
-- **Email**: your.email@example.com
-- **Phone**: +380 123 456 789
-- **LinkedIn**: Your LinkedIn Profile
-- **GitHub Repository**: GitHub Repository Link
+- **Name**: Oleh Vasyliev
+- **Email**: olegvasiilyevv@gmail.com
+- **Phone**: +380 68 777 22 51
+- **LinkedIn**: [https://www.linkedin.com/in/oleh\_\_vasyliev/](https://www.linkedin.com/in/oleh__vasyliev/)
+- **GitHub Profile**: [https://github.com/olehpetrovasyliev](https://github.com/olehpetrovasyliev)
