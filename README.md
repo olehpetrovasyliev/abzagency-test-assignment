@@ -51,5 +51,5 @@ A total of **17.5 hours of pure work** were spent on this assignment.
 - **Name**: Oleh Vasyliev
 - **Email**: olegvasiilyevv@gmail.com
 - **Phone**: +380 68 777 22 51
-- **LinkedIn**: [https://www.linkedin.com/in/oleh\_\_vasyliev/](https://www.linkedin.com/in/oleh__vasyliev/)
+- **LinkedIn**: [https://www.linkedin.com/in/oleh__vasyliev/](https://www.linkedin.com/in/oleh__vasyliev/)
 - **GitHub Profile**: [https://github.com/olehpetrovasyliev](https://github.com/olehpetrovasyliev)
