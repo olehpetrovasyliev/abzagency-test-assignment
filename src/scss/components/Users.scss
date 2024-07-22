@@ -19,9 +19,14 @@
     margin-bottom: 50px;
 
     @media only screen and (min-width: $breakpoint-tablet) and (max-width: $breakpoint-desktop) {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
-
+      place-items: center;
       gap: 16px;
+
+      width: 704px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     @media only screen and (min-width: $breakpoint-desktop) {
@@ -41,18 +46,18 @@
     align-items: center;
     text-align: center;
 
-    max-width: 328px;
+    width: 328px;
     height: auto;
 
     @media only screen and (min-width: $breakpoint-tablet) {
-      max-width: 344px;
+      width: 344px;
     }
 
     @media only screen and (min-width: $breakpoint-desktop) {
-      max-width: 282px;
+      width: 282px;
     }
     @media only screen and (min-width: $breakpoint-huge) {
-      max-width: 370px;
+      width: 370px;
     }
 
     &-media {
