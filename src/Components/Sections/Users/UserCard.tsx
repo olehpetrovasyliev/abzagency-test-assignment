@@ -24,6 +24,7 @@ export const UserCard: FC<User> = ({
           alt={`${name}'s photo`}
           className="users__item-img"
           onError={handleImageError}
+          loading="lazy"
         />
       </div>
 
