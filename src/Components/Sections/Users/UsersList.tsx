@@ -1,9 +1,6 @@
 import { FC } from "react";
 import { User, UsersList } from "../../../helpers/types/usersTypes";
 import { UserCard } from "./UserCard";
-import { selectLoading } from "../../../helpers/redux/users/usersSelectors";
-import { useSelector } from "react-redux";
-import { Preloader } from "../../UI/Preloader";
 
 type UsersListComponentProps = { arr: UsersList | [] };
 
