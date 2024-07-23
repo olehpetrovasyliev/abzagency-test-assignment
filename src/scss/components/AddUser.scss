@@ -114,8 +114,8 @@
       line-height: inherit;
 
       &:focus {
-        border-color: $color-black;
         color: $color-black;
+        outline-color: $color-gray-border;
 
         + .addUser__form-label-text {
           color: $color-black;
