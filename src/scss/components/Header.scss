@@ -20,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 16px;
 
     @media only screen and (max-width: $breakpoint-tablet - 1) {
       max-width: 100%;
