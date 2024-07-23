@@ -4,18 +4,6 @@
 .addUser {
   padding: 70px 0 100px;
 
-  @media only screen and (min-width: $breakpoint-tablet) {
-    padding: 89px 0 88px;
-  }
-
-  @media only screen and (min-width: $breakpoint-desktop) {
-    padding: 224px 0 163px;
-  }
-
-  @media only screen and (min-width: $breakpoint-huge) {
-    padding: 224px 0 163px;
-  }
-
   &__container {
     @include container;
   }
