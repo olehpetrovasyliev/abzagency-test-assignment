@@ -12,7 +12,12 @@ const Header = () => {
     <header className="header">
       <div className="header__container">
         <div className="header__logoWrapper">
-          <img src={logo} alt="Company logo" className="header__logo" />
+          <img
+            src={logo}
+            alt="Company logo"
+            className="header__logo"
+            loading="lazy"
+          />
         </div>
         <div className="header__buttons">
           <a href="#users" className="button button-primary header__btn">
