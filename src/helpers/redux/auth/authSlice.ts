@@ -11,10 +11,13 @@ const initialState: AuthState = {
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    resetToken: (state) => {
+      state.token = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
-
       .addCase(
         getTokenThunk.fulfilled,
         (state, action: PayloadAction<TokenResponse>) => {
@@ -36,4 +39,5 @@ const authSlice = createSlice({
   },
 });
 
+export const { resetToken } = authSlice.actions;
 export default authSlice.reducer;

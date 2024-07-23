@@ -9,9 +9,13 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { addNewUserThunk } from "../../../helpers/redux/users/usersOperations";
 import { useIsTouched } from "../../../helpers/hooks/useIsTouched";
+import { resetToken } from "../../../helpers/redux/auth/authSlice";
+import { selectToken } from "../../../helpers/redux/auth/authSelectors";
+import { toast } from "react-toastify";
 
 export const AddUserForm = () => {
   const positions = useSelector(selectPositions);
+  const token = useSelector(selectToken);
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
@@ -82,7 +86,14 @@ export const AddUserForm = () => {
     photoField.handleBlur();
   };
 
-  const handleSubmit = (values: UserToAdd) => dispatch(addNewUserThunk(values));
+  const handleSubmit = (values: UserToAdd) => {
+    if (!token) {
+      toast.error("Please sign up first.");
+      return;
+    }
+    dispatch(addNewUserThunk(values));
+    dispatch(resetToken());
+  };
 
   const formik = useFormik({
     initialValues,
