@@ -33,12 +33,14 @@ body {
 
   display: block;
   margin: 0 auto;
-  padding: 4px 22px;
+  padding: 4px 0;
+  text-align: center;
   border-radius: 80px;
   border: none;
   font-size: 16px;
   line-height: 26px;
   font-family: "Nunito", sans-serif;
+  width: 100px;
 
   transition: all $transition-time-default linear;
 
