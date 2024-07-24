@@ -3,6 +3,9 @@ import { useDispatch } from "react-redux";
 import { getTokenThunk } from "../../../helpers/redux/auth/authOperations";
 import { AppDispatch } from "../../../helpers/types/reduxConfigTypes";
 import { toast } from "react-toastify";
+import bg from "../../../../public/heroBg.webp";
+import { useState } from "react";
+import { useProgressiveImage } from "../../../helpers/hooks/useSourceLoaded";
 
 export const Hero = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -11,8 +14,11 @@ export const Hero = () => {
     dispatch(getTokenThunk());
     toast.success("Signed up successfully");
   };
+
+  const loaded = useProgressiveImage(bg);
+
   return (
-    <section className="hero" id="hero">
+    <section className={`hero ${loaded ? "hero__bg" : "hero__noBg"}`} id="hero">
       <div className="hero__container">
         <div className="hero__content">
           <h1 className="title hero__title">
