@@ -37,7 +37,7 @@
 //   );
 // };
 
-import React, { useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Button } from "../../UI/Button";
 import { useDispatch } from "react-redux";
 import { getTokenThunk } from "../../../helpers/redux/auth/authOperations";
@@ -57,17 +57,17 @@ export const Hero = () => {
     const handleIntersection = (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting && heroRef.current) {
-          // Lazy load background image
-          heroRef.current.style.backgroundImage = "url(path/to/your/image.jpg)";
-          observer.disconnect(); // Stop observing once image is loaded
+          heroRef.current.style.backgroundImage =
+            "url(public/assets/heroBg.webp)";
+          observer.disconnect();
         }
       });
     };
 
     const observerOptions = {
-      root: null, // Use the viewport
+      root: null,
       rootMargin: "0px",
-      threshold: 0.1, // Load when 10% of the element is visible
+      threshold: 1,
     };
 
     const observer = new IntersectionObserver(
