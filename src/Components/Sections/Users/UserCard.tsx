@@ -18,17 +18,7 @@ export const UserCard: FC<User> = ({
 
   return (
     <li className="users__item" key={id}>
-      <div className="users__item-media">
-        <img
-          src={imgSrc}
-          alt={`${name}'s photo`}
-          className="users__item-img"
-          onError={handleImageError}
-          // loading="lazy"
-          width="100%"
-          height="100%"
-        />
-      </div>
+      <div className="users__item-media"></div>
 
       <p className="users__item-name">{name}</p>
 
