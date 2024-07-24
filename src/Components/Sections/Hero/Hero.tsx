@@ -4,7 +4,6 @@ import { getTokenThunk } from "../../../helpers/redux/auth/authOperations";
 import { AppDispatch } from "../../../helpers/types/reduxConfigTypes";
 import { toast } from "react-toastify";
 import bg from "../../../../public/heroBg.webp";
-import { useState } from "react";
 import { useProgressiveImage } from "../../../helpers/hooks/useSourceLoaded";
 
 export const Hero = () => {
