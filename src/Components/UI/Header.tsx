@@ -8,8 +8,8 @@ import { toast } from "react-toastify";
 const Header = () => {
   const dispatch: AppDispatch = useDispatch();
   const getToken = () => {
-    dispatch(getTokenThunk()); 
-    toast.success('Sugned up succesfully')
+    dispatch(getTokenThunk());
+    toast.success("Sugned up succesfully");
   };
 
   return (
@@ -21,6 +21,8 @@ const Header = () => {
             alt="Company logo"
             className="header__logo"
             loading="lazy"
+            width="100%"
+            height="100%"
           />
         </div>
         <div className="header__buttons">

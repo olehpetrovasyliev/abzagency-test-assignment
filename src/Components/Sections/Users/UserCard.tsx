@@ -25,6 +25,8 @@ export const UserCard: FC<User> = ({
           className="users__item-img"
           onError={handleImageError}
           loading="lazy"
+          width="100%"
+          height="100%"
         />
       </div>
 
