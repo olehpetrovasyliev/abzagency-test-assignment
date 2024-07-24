@@ -9,7 +9,7 @@ export const Hero = () => {
 
   const getToken = () => {
     dispatch(getTokenThunk());
-    toast.success("Sugned up succesfully");
+    toast.success("Signed up successfully");
   };
   return (
     <section className="hero" id="hero">
