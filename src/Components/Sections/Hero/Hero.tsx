@@ -2,11 +2,15 @@ import { Button } from "../../UI/Button";
 import { useDispatch } from "react-redux";
 import { getTokenThunk } from "../../../helpers/redux/auth/authOperations";
 import { AppDispatch } from "../../../helpers/types/reduxConfigTypes";
+import { toast } from "react-toastify";
 
 export const Hero = () => {
   const dispatch: AppDispatch = useDispatch();
 
-  const getToken = () => dispatch(getTokenThunk());
+  const getToken = () => {
+    dispatch(getTokenThunk());
+    toast.success("Sugned up succesfully");
+  };
   return (
     <section className="hero" id="hero">
       <div className="hero__container">
