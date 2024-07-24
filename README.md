@@ -44,7 +44,7 @@ The project is deployed and can be viewed in a browser at the following link:
 
 ## Hours Spent
 
-A total of **18,5 hours of pure work** were spent on this assignment.
+A total of **19 hours of pure work** were spent on this assignment.
 
 ## Contact Information
 
